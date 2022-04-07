@@ -1,10 +1,10 @@
-import { Logo } from './Home.styles';
 
 const Home = () => {
+
   return (
-  <div>
-      <Logo></Logo>
-  </div>
+    <div>
+     Descripcion 
+    </div>
   )
 };
 
