@@ -16,3 +16,12 @@ export const Tarjet = styled.div`
 export const Name = styled.p`
     text-align: center;
 `
+export const Page = styled.div`
+    background-image: url("pagentera.jpeg");
+    background-size: contain;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
