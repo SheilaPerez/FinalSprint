@@ -12,7 +12,7 @@ const GoldCardVillager = ({clickCard}) => {
       {globalContext == "premium" && clickCard ? 
         <select>
           <option>Name in all languages</option>
-          <option value="">... {selectedVillager.name["name-EUde"]}</option>
+          <option value="">German: {selectedVillager.name["name-EUde"]}</option>
           <option value="">Spanish: {selectedVillager.name["name-EUes"]}</option>
           <option value="">Japan: {selectedVillager.name["name-JPja"]}</option>
           <option value="">Unites States: {selectedVillager.name["name-USen"]}</option>

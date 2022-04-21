@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { TarjetFish, Name, PriceInfo, Div } from './Fish.styles';
+import { TarjetFish, Name, PriceInfo, Div, DivInptQuest, Input, Quest } from './Fish.styles';
 
 const Fish = () => {
   const [fishes, setFishes] = useState([]);
@@ -19,11 +19,27 @@ const Fish = () => {
     })
   }
 
+  const handleChangeFish = (e) => {
+    const foundFish = fishes.filter((fish) => {
+      return (fish.name["name-EUen"].toLowerCase() === e.target.value.toLowerCase());
+    })
+
+    if (foundFish.length !== 0) {
+      setFishes(foundFish);
+    } else {
+      setFishes(originalFishes);
+    }
+  }
+
   return (
     <Div> 
-      {fishes.map((fish) => {
+      <DivInptQuest>
+        <Quest>Which fish you wanna found?</Quest>
+        <Input type="text" placeholder="Fish name" onChange={handleChangeFish}></Input>
+      </DivInptQuest>
+      {fishes.map((fish, index) => {
         return (
-          <TarjetFish>
+          <TarjetFish key={index}>
             <Name>{fish.name["name-EUen"]}</Name>
             <img src={fish.icon_uri}></img>
             <PriceInfo>price </PriceInfo><p>{fish.price}</p>

@@ -42,6 +42,24 @@ export const Div = styled.div`
     ${desktop}{
         justify-content: center;
     }
-    
 }
+`
+export const Input = styled.input`
+    padding: 5px 23px;
+    border: 2px solid #39AEA9;
+    border-radius: 10px;
+    width: 200px;
+`
+export const Quest = styled.p`
+    font-weight: 800;
+    margin-right: 20px;
+`
+export const DivInptQuest = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ${tabletV}{
+        flex-direction: row;
+        margin-left: 70px;
+    }  
 `

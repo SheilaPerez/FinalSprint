@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { TarjetArt, Name, FakeInfo, Div, No, Yes } from './Art.styles';
+import { TarjetArt, Name, FakeInfo, Div, No, Yes, DivInptQuest, Quest, Input } from './Art.styles';
 
 const Art = () => {
   
@@ -18,14 +18,29 @@ const Art = () => {
         const arrayArt = Object.values(res.data);
         setOriginalArts(arrayArt);
         setArts(arrayArt);
-        console.log('art', arrayArt);
     })
+  }
+
+  const handleChangeArt = (e) => {
+    const foundArt = arts.filter((art) => {
+      return art.name["name-EUen"].toLowerCase() === e.target.value.toLowerCase();
+    })
+
+    if (foundArt.length !== 0) {
+      setArts(foundArt);
+    } else {
+      setArts(originalArts);
+    }
   }
   return (
     <Div>
-      {arts.map((art) => {
+      <DivInptQuest>
+        <Quest>Which work art wanna found?</Quest>
+        <Input type="text" placeholder="Art name" onChange={handleChangeArt}></Input>
+      </DivInptQuest>
+      {arts.map((art, index) => {
         return (
-          <TarjetArt>
+          <TarjetArt key={index}>
             <Name>{art.name["name-EUen"]}</Name>
             <img src={art.image_uri}></img>
             <FakeInfo>Has Fake?</FakeInfo>

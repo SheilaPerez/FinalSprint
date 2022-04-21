@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { TarjetBug, Name, PriceInfo, Div } from './Bugs.styles';
+import { TarjetBug, Name, PriceInfo, Div, Input, Quest, DivInptQuest } from './Bugs.styles';
 
 const Bugs = () => {
   const [bugs, setBugs] = useState([]);
@@ -15,15 +15,30 @@ const Bugs = () => {
         const arrayBugs = Object.values(res.data);
         setOriginalBugs(arrayBugs);
         setBugs(arrayBugs);
-        console.log('bugs', arrayBugs)
       })
+  }
+
+  const handleChangeBug = (e) => {
+    const foundBug = bugs.filter((bug) => {
+      return bug.name["name-EUen"].toLowerCase() === e.target.value.toLowerCase();
+    })
+
+    if (foundBug.length !== 0) {
+      setBugs(foundBug);
+    } else {
+      setBugs(originalBugs);
+    }
   }
 
   return (
     <Div>
-      {bugs.map((bug) => {
+      <DivInptQuest>
+        <Quest>Which bug you wanna found?</Quest>
+        <Input type="text" placeholder="Bug name" onChange={handleChangeBug}></Input>
+      </DivInptQuest>
+      {bugs.map((bug, index) => {
         return (
-          <TarjetBug>
+          <TarjetBug key={index}>
             <Name>{bug.name["name-EUen"]}</Name>
             <img src={bug.icon_uri}></img>
             <PriceInfo>Price: </PriceInfo><p>{bug.price}</p>

@@ -16,10 +16,8 @@ const SignUp = () => {
     if (registerClicked) {
       const userRegister = { nick, email, password, registerChoose };
       localStorage.setItem('user', JSON.stringify(userRegister));
-      console.log('register choose', registerChoose, globalContext)
       setGlobalContext(registerChoose);
       navigate('/');
-      console.log('glob', globalContext);
     }
   }, [registerClicked]);
 

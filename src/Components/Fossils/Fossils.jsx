@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { TarjetFossil, Name, PriceInfo, Div } from './Fossils.styles'; 
+import { TarjetFossil, Name, PriceInfo, Div, Quest, Input, DivInptQuest } from './Fossils.styles'; 
 
 const Fossils = () => {
   const [fossils, setFossils] = useState([]);
@@ -16,15 +16,30 @@ const Fossils = () => {
       const arrayFossils = Object.values(res.data)
       setOriginalFossils(arrayFossils);
       setFossils(arrayFossils);
-      console.log('fossils', arrayFossils)
     })
+  }
+
+  const handleChangeFossil = (e) => {
+    const foundFossil = fossils.filter((fossil) => {
+      return fossil.name["name-EUen"].toLowerCase() === e.target.value.toLowerCase();
+    })
+
+    if (foundFossil.length !== 0) {
+      setFossils(foundFossil);
+    } else {
+      setFossils(originalFossils);
+    }
   }
   
   return (
     <Div>
-      {fossils.map((fossil) => {
+      <DivInptQuest>
+        <Quest>Which fossil wanna found?</Quest>
+        <Input type="text" placeholder="Fossil name" onChange={handleChangeFossil}></Input>
+      </DivInptQuest>
+      {fossils.map((fossil, index) => {
         return (
-          <TarjetFossil>
+          <TarjetFossil key={index}>
             <Name>{fossil.name["name-EUen"]}</Name>
             <img src={fossil.image_uri}></img>
             <PriceInfo>Price:</PriceInfo>

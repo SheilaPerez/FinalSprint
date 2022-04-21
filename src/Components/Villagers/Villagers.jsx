@@ -20,8 +20,6 @@ const Villagers = () => {
         const arrayVillagers = Object.values(res.data); //Transformar objeto a array 
         setOriginalVillagers(arrayVillagers)
         setVillagers(arrayVillagers); 
-
-        console.log('vilag', Object.values(res.data))
     })
   };
 
