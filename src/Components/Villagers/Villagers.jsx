@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { VillagerImg, VillagersList, Tarjet, Name, Page } from './Villagers.styles';
+import { VillagerImg, VillagersList, Tarjet, Name, Page, Input } from './Villagers.styles';
 import { useNavigate } from 'react-router-dom';
 import SelectedVillagerContext from '../../Context/SelectedVillagerContext';
 
@@ -43,11 +43,9 @@ const Villagers = () => {
   }
 
   return (
-    
-   
-<Page>
+    <Page>
       <p>Do you know de villager name? Search here! </p>
-      <input type="text" placeholder="Villager name" onChange={handleChangeSearchName}></input>
+      <Input type="text" placeholder="Villager name" onChange={handleChangeSearchName}></Input>
       <VillagersList>
         {villagers.map((villager, index) => {
           return (

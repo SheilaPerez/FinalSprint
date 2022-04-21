@@ -1,8 +1,9 @@
 import { Logo } from './Header.styles';
 import { MdViewHeadline } from "react-icons/md";
 import { IconContext } from 'react-icons';
-import { Menu, MenuItemLink, MenuItem, HeaderMenu } from './Header.styles';
+import { Menu, MenuItemLink, MenuItem, HeaderMenu, MenuMbl } from './Header.styles';
 import { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 const Header = () => {
 
@@ -13,24 +14,34 @@ const Header = () => {
       <IconContext.Provider value={{ style: { fontSize: "3em", color: "#39AEA9" } }}>
         <HeaderMenu>
           <Logo></Logo>
-          <MdViewHeadline onClick={() => {setShowMobileMenu(!showMobileMenu)}}/>
+          <MenuMbl onClick={() => {setShowMobileMenu(!showMobileMenu)}}/>
         </HeaderMenu>
         <Menu open={showMobileMenu}>
+        <Link to="" style={{ textDecoration: 'none' }}>
           <MenuItem>
-            <MenuItemLink to="/home">home</MenuItemLink>
+            <MenuItemLink>home</MenuItemLink>
           </MenuItem>
+        </Link>
+        <Link to="villagers" style={{ textDecoration: 'none' }}>
           <MenuItem>
-            <MenuItemLink to="villagers">villagers</MenuItemLink>
+            <MenuItemLink>villagers</MenuItemLink>
+          </MenuItem>
+        </Link>
+        <Link to="animals" style={{ textDecoration: 'none' }}>
+          <MenuItem>
+            <MenuItemLink>animals</MenuItemLink>
+          </MenuItem>
+        </Link>
+        <Link to="art" style={{ textDecoration: 'none' }}>
+          <MenuItem>
+            <MenuItemLink>art</MenuItemLink> 
           </MenuItem> 
+        </Link> 
+        <Link to="fossils" style={{ textDecoration: 'none' }}>
           <MenuItem>
-            <MenuItemLink to="/animals">animals</MenuItemLink>
+            <MenuItemLink>fossils</MenuItemLink> 
           </MenuItem>
-          <MenuItem>
-            <MenuItemLink to="/art">art</MenuItemLink>
-          </MenuItem> 
-          <MenuItem>
-            <MenuItemLink to="/fossils">fossils</MenuItemLink>
-          </MenuItem>
+        </Link>
         </Menu>
       </IconContext.Provider>
     </div>

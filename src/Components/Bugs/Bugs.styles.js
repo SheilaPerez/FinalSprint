@@ -6,8 +6,8 @@ const desktopStartWidth = 1024;
 const tabletV = `@media (min-width: ${tabletVStartWidth }px)`;
 const desktop = `@media (min-width: ${desktopStartWidth}px)`;
 
-export const TarjetArt = styled.div`
-    border: 2px solid #781D42;
+export const TarjetBug = styled.div`
+    border: 2px solid #4E944F;
     padding: 30px;
     border-radius: 20%;
     margin: 30px;
@@ -24,11 +24,11 @@ export const Name = styled.p`
     text-transform: uppercase;
     text-align: center;
     font-weight: 800;
-    color: #E5890A; 
+    color: #83BD75; 
 `
-export const FakeInfo = styled.p`
+export const PriceInfo = styled.p`
     font-weight: 800;
-    color: #A64B2A;
+    color: #6BCB77;
 `
 export const Div = styled.div`
     display: flex;
@@ -41,20 +41,7 @@ export const Div = styled.div`
     }
     ${desktop}{
         justify-content: center;
-    } 
+    }
+    
 }
-`
-export const Yes = styled.p`
-    color: #DF5E5E;
-    font-weight: 800;
-    font-size: 20px;
-    border: 2px solid #DF5E5E;
-    padding: 4px;
-`
-export const No = styled.p`
-    color: #9FC088;
-    font-weight: 800;
-    font-size: 20px;
-    border: 2px solid #9FC088;
-    padding: 4px;
 `

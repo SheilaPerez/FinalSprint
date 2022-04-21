@@ -24,7 +24,7 @@ export const Banner = styled.div`
     background-image: url("banner.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 32%;
+    height: 23%;
     width: 100%;
     ${tablet} {
 		height: 39%;
@@ -35,11 +35,11 @@ export const Banner = styled.div`
         width: 93%;
 	}
     ${desktop} {
-        height: 55%;
+        height: 39%;
         width: 80%;
 	}
     ${bigDesktop} {
-        height: 63%;
+        height: 45%;
         width: 78%;
 	}
 `

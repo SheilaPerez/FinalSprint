@@ -1,6 +1,7 @@
 import { Page, Input, Div, SignBtn, InputDiv, ChooseText, ChooseDiv, Select } from './SignUp.styles';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import GlobalContext from '../../Context/GlobalContext';
 
 const SignUp = () => {
   const [nick, setNick] = useState("");
@@ -9,19 +10,23 @@ const SignUp = () => {
   const [registerClicked, setRegisterClicked] = useState(false);
   const [registerChoose, setRegisterChoose] = useState();
   const navigate = useNavigate();
+  const { globalContext, setGlobalContext } = useContext(GlobalContext);
 
   useEffect(() => {
     if (registerClicked) {
       const userRegister = { nick, email, password, registerChoose };
       localStorage.setItem('user', JSON.stringify(userRegister));
+      console.log('register choose', registerChoose, globalContext)
+      setGlobalContext(registerChoose);
       navigate('/');
+      console.log('glob', globalContext);
     }
   }, [registerClicked]);
 
   const handleClickRegister = () => {
     setRegisterClicked(true);
   }
-
+ 
   return (
     <Div>
       <Page>
