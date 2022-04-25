@@ -25,22 +25,22 @@ export const Banner = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     height: 23%;
-    width: 100%;
+    width: 67%;
     ${tablet} {
 		height: 39%;
-        width: 100%;
+        width: 94%;
 	}
     ${tabletV} {
 		height: 47%;
-        width: 93%;
+        width: 89%;
 	}
     ${desktop} {
-        height: 39%;
+        height: 58%;
         width: 80%;
 	}
     ${bigDesktop} {
-        height: 45%;
-        width: 78%;
+        height: 55%;
+        width: 62%;
 	}
 `
 export const RegisterBtn = styled.button`
